@@ -1,30 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-
-int power(int x, int pow)
-{
-    /*
-    Summery:
-        returns x to the power of pow
-
-    Purpose:
-        a customer pow function that means we don't have to import a libary
-
-    Example:
-        >>> power(2, 3)
-        8
-    */
-    if (pow == 0)
-    {
-        return 1;
-    }
-    int result = x;
-    for (int i = 0; i < pow - 1; i++)
-    {
-        result = (result * x);
-    }
-    return result;
-}
+#include "math_lib/math_lib.h"
+#include "utils/utils.h"
 
 int hexlet_to_int(char letter)
 {
@@ -82,30 +59,6 @@ char int_to_hex(int val)
     {
         return (char)val + 48;
     }
-}
-
-int size_of(char *string)
-{
-    /*
-    Summery:
-        returns size of given string
-
-    Purpose:
-        find the length of a string
-
-    Example:
-        >>> char * myString = "myString";
-        >>> size_of(myString);
-        (int)8
-    */
-    int count = 0;
-    char s = string[0];
-    while (s != '\0')
-    {
-        s = string[count];
-        count++;
-    }
-    return count - 1;
 }
 
 int hex_to_dec(char *hex)
