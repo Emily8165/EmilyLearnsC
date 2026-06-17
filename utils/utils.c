@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int size_of(char *string)
 {
@@ -22,4 +23,85 @@ int size_of(char *string)
         count++;
     }
     return count - 1;
+}
+
+char *bitwise_and(char *first, char *second)
+{
+    int size_of_first = size_of(first);
+    char *value = malloc(sizeof(char) * size_of_first);
+    for (int i = 0; i < size_of_first; i++)
+    {
+        if (first[i] == second[i])
+        {
+            value[i] = '1';
+        }
+        else
+        {
+            value[i] = '0';
+        }
+    }
+    return value;
+}
+
+char *bitwise_not(char *first, char *second)
+{
+    int size_of_first = size_of(first);
+    char *value = malloc(sizeof(char) * size_of_first);
+    for (int i = 0; i < size_of_first; i++)
+    {
+        if (first[i] == second[i])
+        {
+            value[i] = '0';
+        }
+        else
+        {
+            value[i] = '1';
+        }
+    }
+    return value;
+}
+
+char *bitwise_or(char *first, char *second)
+{
+    int size_of_first = size_of(first);
+    char *value = malloc(sizeof(char) * size_of_first);
+    for (int i = 0; i < size_of_first; i++)
+    {
+        if (first[i] == second[i])
+        {
+            value[i] = first[i];
+        }
+        else if (value[i] == '1')
+        {
+            value[i] = '0';
+        }
+        else
+        {
+            value[i] = '1';
+        }
+    }
+    return value;
+}
+
+char *bitwise_xor(char *first, char *second)
+{
+    int size_of_first = size_of(first);
+    char *value = malloc(sizeof(char) * size_of_first);
+    for (int i = 0; i < size_of_first; i++)
+    {
+        if (first[i] != second[i])
+        {
+            value[i] = '1';
+        }
+        else
+        {
+            value[i] = '0';
+        };
+    }
+    return value;
+}
+
+int main()
+{
+    printf("%s", bitwise_xor("0010", "1010"));
 }
